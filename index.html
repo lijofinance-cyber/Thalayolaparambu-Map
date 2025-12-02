@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Polygon + My Location Map</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+      #status {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status">Loading map…</div>
+    <div id="map"></div>
+
+    <script>
+      let map, polygon, userMarker;
+
+      // ==========================================
+      // 1) EDIT THIS: Your polygon coordinates
+      //    Paste your own lat/lng pairs here.
+      //    Example below is just a sample polygon.
+      // ==========================================
+      const POLYGON_PATH = [
+        76.3765501,9.7703759
+76.3769739,9.7703547
+76.3773985,9.7703792
+76.3777880,9.7704834
+76.3780931,9.7706333
+76.3783588,9.7708563
+76.3785590,9.7711274
+76.3786612,9.7714384
+76.3786764,9.7717530
+76.3785995,9.7720612
+76.3784420,9.7723296
+76.3781998,9.7725933
+76.3778966,9.7728000
+76.3775412,9.7729534
+76.3771116,9.7730462
+76.3766860,9.7730322
+76.3762851,9.7729120
+76.3759381,9.7727162
+76.3756628,9.7724526
+76.3754583,9.7721258
+76.3753672,9.7717894
+76.3753692,9.7714418
+76.3754783,9.7711109
+76.3756674,9.7708343
+76.3759778,9.7706100
+76.3763349,9.7704577
+76.3765501,9.7703759
+      ];
+
+      function setStatus(msg) {
+        const el = document.getElementById("status");
+        if (el) el.textContent = msg || "";
+      }
+
+      // Called by Google Maps JS API when loaded
+      function initMap() {
+        const fallbackCenter = POLYGON_PATH.length
+          ? POLYGON_PATH[0]
+          : { lat: 0, lng: 0 };
+
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: fallbackCenter,
+          zoom: 15,
+          mapTypeId: "roadmap",
+          fullscreenControl: true
+        });
+
+        // Draw polygon
+        if (POLYGON_PATH.length) {
+          polygon = new google.maps.Polygon({
+            paths: POLYGON_PATH,
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.25
+          });
+          polygon.setMap(map);
+        }
+
+        // Fit map to polygon
+        let bounds = new google.maps.LatLngBounds();
+        if (POLYGON_PATH.length) {
+          POLYGON_PATH.forEach((pt) => bounds.extend(pt));
+        } else {
+          bounds.extend(fallbackCenter);
+        }
+        map.fitBounds(bounds);
+
+        // Try to get user's current location
+        if (navigator.geolocation) {
+          setStatus("Trying to get your location…");
+
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+              // Blue-dot style marker
+              userMarker = new google.maps.Marker({
+                position: pos,
+                map,
+                title: "You are here",
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: 7,
+                  fillColor: "#4285F4",
+                  fillOpacity: 1,
+                  strokeColor: "white",
+                  strokeWeight: 2
+                }
+              });
+
+              // Extend bounds to include user + polygon
+              bounds.extend(pos);
+              map.fitBounds(bounds);
+
+              setStatus("Showing polygon and your current location.");
+              setTimeout(() => setStatus(""), 4000);
+            },
+            (error) => {
+              console.warn("Geolocation failed:", error);
+              setStatus("Could not get your location. Showing polygon only.");
+              setTimeout(() => setStatus(""), 4000);
+            },
+            {
+              enableHighAccuracy: true,
+              timeout: 10000,
+              maximumAge: 0
+            }
+          );
+        } else {
+          setStatus(
+            "Your browser does not support geolocation. Showing polygon only."
+          );
+          setTimeout(() => setStatus(""), 4000);
+        }
+      }
+    </script>
+
+    <!--
+      2) EDIT THIS: Put your own Google Maps JavaScript API key
+         Make sure billing is enabled & referrer allows your domain.
+    -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhIsx80cCD6zFRUfQcm_MXi2Vr5wgi2DY&callback=initMap"
+    ></script>
+  </body>
+</html>
