@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #870581}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #97007e}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #000000; min-height: 16.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #0d6401}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #1400c4}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #6f5a1e}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px '.AppleSystemUIFontMonospaced'; color: #b50013}
+    span.s1 {color: #97007e}
+    span.s2 {color: #000000}
+    span.s3 {color: #6f5a1e}
+    span.s4 {color: #b50013}
+    span.s5 {color: #1400c4}
+    span.s6 {color: #885d30}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE <span class="s1">html</span>&gt;</p>
+<p class="p2">&lt;html&gt;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span>&lt;head&gt;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;meta <span class="s3">charset</span>=<span class="s4">"utf-8"</span> /&gt;</p>
+<p class="p3"><span class="Apple-converted-space">    </span><span class="s1">&lt;title&gt;</span>Polygon + My Location Map<span class="s1">&lt;/title&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;style&gt;</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s1">html</span>,</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s1">body</span> {</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">height</span>: <span class="s5">100%</span>;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">margin</span>: <span class="s5">0</span>;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">padding</span>: <span class="s5">0</span>;</p>
+<p class="p3"><span class="Apple-converted-space">      </span>}</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s6">#map</span> {</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">height</span>: <span class="s5">100%</span>;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">width</span>: <span class="s5">100%</span>;</p>
+<p class="p3"><span class="Apple-converted-space">      </span>}</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s6">#status</span> {</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">position</span>: absolute;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">top</span>: <span class="s5">8px</span>;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">left</span>: <span class="s5">50%</span>;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">transform</span>: translateX(-<span class="s5">50%</span>);</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">background</span>: white;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">padding</span>: <span class="s5">6px</span> <span class="s5">10px</span>;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span>border-radius<span class="s2">: </span><span class="s5">4px</span><span class="s2">;</span></p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">font-family</span>: Arial, sans-serif;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">font-size</span>: <span class="s5">12px</span>;</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">box-shadow</span>: <span class="s5">0</span> <span class="s5">1px</span> <span class="s5">4px</span> rgba(<span class="s5">0</span>, <span class="s5">0</span>, <span class="s5">0</span>, <span class="s5">0.3</span>);</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">z-index</span>: <span class="s5">999</span>;</p>
+<p class="p3"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;/style&gt;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span>&lt;/head&gt;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span>&lt;body&gt;</p>
+<p class="p3"><span class="Apple-converted-space">    </span><span class="s1">&lt;div </span><span class="s3">id</span><span class="s1">=</span><span class="s4">"status"</span><span class="s1">&gt;</span>Loading map…<span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;div <span class="s3">id</span>=<span class="s4">"map"</span>&gt;&lt;/div&gt;</p>
+<p class="p4"><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;script&gt;</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s1">let</span> map, polygon, userMarker;</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">      </span></span>// ==========================================</p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">      </span></span>// 1) EDIT THIS: Your polygon coordinates</p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">      </span></span>//<span class="Apple-converted-space">    </span>Paste your own lat/lng pairs here.</p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">      </span></span>//<span class="Apple-converted-space">    </span>Example below is just a sample polygon.</p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">      </span></span>// ==========================================</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s1">const</span> POLYGON_PATH = [</p>
+<p class="p6"><span class="s2"><span class="Apple-converted-space">        </span></span>76.3765501<span class="s2">,</span>9.7703759</p>
+<p class="p6">76.3769739<span class="s2">,</span>9.7703547</p>
+<p class="p6">76.3773985<span class="s2">,</span>9.7703792</p>
+<p class="p6">76.3777880<span class="s2">,</span>9.7704834</p>
+<p class="p6">76.3780931<span class="s2">,</span>9.7706333</p>
+<p class="p6">76.3783588<span class="s2">,</span>9.7708563</p>
+<p class="p6">76.3785590<span class="s2">,</span>9.7711274</p>
+<p class="p6">76.3786612<span class="s2">,</span>9.7714384</p>
+<p class="p6">76.3786764<span class="s2">,</span>9.7717530</p>
+<p class="p6">76.3785995<span class="s2">,</span>9.7720612</p>
+<p class="p6">76.3784420<span class="s2">,</span>9.7723296</p>
+<p class="p6">76.3781998<span class="s2">,</span>9.7725933</p>
+<p class="p6">76.3778966<span class="s2">,</span>9.7728000</p>
+<p class="p6">76.3775412<span class="s2">,</span>9.7729534</p>
+<p class="p6">76.3771116<span class="s2">,</span>9.7730462</p>
+<p class="p6">76.3766860<span class="s2">,</span>9.7730322</p>
+<p class="p6">76.3762851<span class="s2">,</span>9.7729120</p>
+<p class="p6">76.3759381<span class="s2">,</span>9.7727162</p>
+<p class="p6">76.3756628<span class="s2">,</span>9.7724526</p>
+<p class="p6">76.3754583<span class="s2">,</span>9.7721258</p>
+<p class="p6">76.3753672<span class="s2">,</span>9.7717894</p>
+<p class="p6">76.3753692<span class="s2">,</span>9.7714418</p>
+<p class="p6">76.3754783<span class="s2">,</span>9.7711109</p>
+<p class="p6">76.3756674<span class="s2">,</span>9.7708343</p>
+<p class="p6">76.3759778<span class="s2">,</span>9.7706100</p>
+<p class="p6">76.3763349<span class="s2">,</span>9.7704577</p>
+<p class="p6">76.3765501<span class="s2">,</span>9.7703759</p>
+<p class="p3"><span class="Apple-converted-space">      </span>];</p>
+<p class="p4"><br></p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s1">function</span> setStatus(msg) {</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">const</span> el = document.getElementById(<span class="s4">"status"</span>);</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">if</span> (el) el.textContent = msg || <span class="s4">""</span>;</p>
+<p class="p3"><span class="Apple-converted-space">      </span>}</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">      </span></span>// Called by Google Maps JS API when loaded</p>
+<p class="p3"><span class="Apple-converted-space">      </span><span class="s1">function</span> initMap() {</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">const</span> fallbackCenter = POLYGON_PATH.length</p>
+<p class="p3"><span class="Apple-converted-space">          </span>? POLYGON_PATH[<span class="s5">0</span>]</p>
+<p class="p3"><span class="Apple-converted-space">          </span>: { <span class="s3">lat</span>: <span class="s5">0</span>, <span class="s3">lng</span>: <span class="s5">0</span> };</p>
+<p class="p4"><br></p>
+<p class="p3"><span class="Apple-converted-space">        </span>map = <span class="s1">new</span> google.maps.Map(document.getElementById(<span class="s4">"map"</span>), {</p>
+<p class="p3"><span class="Apple-converted-space">          </span><span class="s3">center</span>: fallbackCenter,</p>
+<p class="p3"><span class="Apple-converted-space">          </span><span class="s3">zoom</span>: <span class="s5">15</span>,</p>
+<p class="p3"><span class="Apple-converted-space">          </span><span class="s3">mapTypeId</span>: <span class="s4">"roadmap"</span>,</p>
+<p class="p7"><span class="s2"><span class="Apple-converted-space">          </span></span>fullscreenControl<span class="s2">: </span><span class="s1">true</span></p>
+<p class="p3"><span class="Apple-converted-space">        </span>});</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span></span>// Draw polygon</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">if</span> (POLYGON_PATH.length) {</p>
+<p class="p3"><span class="Apple-converted-space">          </span>polygon = <span class="s1">new</span> google.maps.Polygon({</p>
+<p class="p3"><span class="Apple-converted-space">            </span><span class="s3">paths</span>: POLYGON_PATH,</p>
+<p class="p3"><span class="Apple-converted-space">            </span><span class="s3">strokeColor</span>: <span class="s4">"#FF0000"</span>,</p>
+<p class="p3"><span class="Apple-converted-space">            </span><span class="s3">strokeOpacity</span>: <span class="s5">0.8</span>,</p>
+<p class="p3"><span class="Apple-converted-space">            </span><span class="s3">strokeWeight</span>: <span class="s5">2</span>,</p>
+<p class="p3"><span class="Apple-converted-space">            </span><span class="s3">fillColor</span>: <span class="s4">"#FF0000"</span>,</p>
+<p class="p3"><span class="Apple-converted-space">            </span><span class="s3">fillOpacity</span>: <span class="s5">0.25</span></p>
+<p class="p3"><span class="Apple-converted-space">          </span>});</p>
+<p class="p3"><span class="Apple-converted-space">          </span>polygon.setMap(map);</p>
+<p class="p3"><span class="Apple-converted-space">        </span>}</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span></span>// Fit map to polygon</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">let</span> bounds = <span class="s1">new</span> google.maps.LatLngBounds();</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">if</span> (POLYGON_PATH.length) {</p>
+<p class="p3"><span class="Apple-converted-space">          </span>POLYGON_PATH.forEach((pt) =&gt; bounds.extend(pt));</p>
+<p class="p3"><span class="Apple-converted-space">        </span>} <span class="s1">else</span> {</p>
+<p class="p3"><span class="Apple-converted-space">          </span>bounds.extend(fallbackCenter);</p>
+<p class="p3"><span class="Apple-converted-space">        </span>}</p>
+<p class="p3"><span class="Apple-converted-space">        </span>map.fitBounds(bounds);</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">        </span></span>// Try to get user's current location</p>
+<p class="p3"><span class="Apple-converted-space">        </span><span class="s1">if</span> (navigator.geolocation) {</p>
+<p class="p8"><span class="s2"><span class="Apple-converted-space">          </span>setStatus(</span>"Trying to get your location…"<span class="s2">);</span></p>
+<p class="p4"><br></p>
+<p class="p3"><span class="Apple-converted-space">          </span>navigator.geolocation.getCurrentPosition(</p>
+<p class="p3"><span class="Apple-converted-space">            </span>(position) =&gt; {</p>
+<p class="p3"><span class="Apple-converted-space">              </span><span class="s1">const</span> pos = {</p>
+<p class="p3"><span class="Apple-converted-space">                </span><span class="s3">lat</span>: position.coords.latitude,</p>
+<p class="p3"><span class="Apple-converted-space">                </span><span class="s3">lng</span>: position.coords.longitude</p>
+<p class="p3"><span class="Apple-converted-space">              </span>};</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">              </span></span>// Blue-dot style marker</p>
+<p class="p3"><span class="Apple-converted-space">              </span>userMarker = <span class="s1">new</span> google.maps.Marker({</p>
+<p class="p3"><span class="Apple-converted-space">                </span><span class="s3">position</span>: pos,</p>
+<p class="p3"><span class="Apple-converted-space">                </span>map,</p>
+<p class="p3"><span class="Apple-converted-space">                </span><span class="s3">title</span>: <span class="s4">"You are here"</span>,</p>
+<p class="p3"><span class="Apple-converted-space">                </span><span class="s3">icon</span>: {</p>
+<p class="p3"><span class="Apple-converted-space">                  </span><span class="s3">path</span>: google.maps.SymbolPath.CIRCLE,</p>
+<p class="p3"><span class="Apple-converted-space">                  </span><span class="s3">scale</span>: <span class="s5">7</span>,</p>
+<p class="p3"><span class="Apple-converted-space">                  </span><span class="s3">fillColor</span>: <span class="s4">"#4285F4"</span>,</p>
+<p class="p3"><span class="Apple-converted-space">                  </span><span class="s3">fillOpacity</span>: <span class="s5">1</span>,</p>
+<p class="p3"><span class="Apple-converted-space">                  </span><span class="s3">strokeColor</span>: <span class="s4">"white"</span>,</p>
+<p class="p3"><span class="Apple-converted-space">                  </span><span class="s3">strokeWeight</span>: <span class="s5">2</span></p>
+<p class="p3"><span class="Apple-converted-space">                </span>}</p>
+<p class="p3"><span class="Apple-converted-space">              </span>});</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">              </span></span>// Extend bounds to include user + polygon</p>
+<p class="p3"><span class="Apple-converted-space">              </span>bounds.extend(pos);</p>
+<p class="p3"><span class="Apple-converted-space">              </span>map.fitBounds(bounds);</p>
+<p class="p4"><br></p>
+<p class="p8"><span class="s2"><span class="Apple-converted-space">              </span>setStatus(</span>"Showing polygon and your current location."<span class="s2">);</span></p>
+<p class="p3"><span class="Apple-converted-space">              </span>setTimeout(() =&gt; setStatus(<span class="s4">""</span>), <span class="s5">4000</span>);</p>
+<p class="p3"><span class="Apple-converted-space">            </span>},</p>
+<p class="p3"><span class="Apple-converted-space">            </span>(error) =&gt; {</p>
+<p class="p3"><span class="Apple-converted-space">              </span>console.warn(<span class="s4">"Geolocation failed:"</span>, error);</p>
+<p class="p8"><span class="s2"><span class="Apple-converted-space">              </span>setStatus(</span>"Could not get your location. Showing polygon only."<span class="s2">);</span></p>
+<p class="p3"><span class="Apple-converted-space">              </span>setTimeout(() =&gt; setStatus(<span class="s4">""</span>), <span class="s5">4000</span>);</p>
+<p class="p3"><span class="Apple-converted-space">            </span>},</p>
+<p class="p3"><span class="Apple-converted-space">            </span>{</p>
+<p class="p7"><span class="s2"><span class="Apple-converted-space">              </span></span>enableHighAccuracy<span class="s2">: </span><span class="s1">true</span><span class="s2">,</span></p>
+<p class="p3"><span class="Apple-converted-space">              </span><span class="s3">timeout</span>: <span class="s5">10000</span>,</p>
+<p class="p3"><span class="Apple-converted-space">              </span><span class="s3">maximumAge</span>: <span class="s5">0</span></p>
+<p class="p3"><span class="Apple-converted-space">            </span>}</p>
+<p class="p3"><span class="Apple-converted-space">          </span>);</p>
+<p class="p3"><span class="Apple-converted-space">        </span>} <span class="s1">else</span> {</p>
+<p class="p3"><span class="Apple-converted-space">          </span>setStatus(</p>
+<p class="p8"><span class="s2"><span class="Apple-converted-space">            </span></span>"Your browser does not support geolocation. Showing polygon only."</p>
+<p class="p3"><span class="Apple-converted-space">          </span>);</p>
+<p class="p3"><span class="Apple-converted-space">          </span>setTimeout(() =&gt; setStatus(<span class="s4">""</span>), <span class="s5">4000</span>);</p>
+<p class="p3"><span class="Apple-converted-space">        </span>}</p>
+<p class="p3"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;/script&gt;</p>
+<p class="p4"><br></p>
+<p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;!--</p>
+<p class="p5"><span class="Apple-converted-space">      </span>2) EDIT THIS: Put your own Google Maps JavaScript API key</p>
+<p class="p5"><span class="Apple-converted-space">         </span>Make sure billing is enabled &amp; referrer allows your domain.</p>
+<p class="p5"><span class="Apple-converted-space">    </span>--&gt;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span>&lt;script</p>
+<p class="p2"><span class="Apple-converted-space">      </span><span class="s3">async</span></p>
+<p class="p2"><span class="Apple-converted-space">      </span><span class="s3">defer</span></p>
+<p class="p8"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s3">src</span><span class="s1">=</span>"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhIsx80cCD6zFRUfQcm_MXi2Vr5wgi2DY&amp;callback=initMap"</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&gt;&lt;/script&gt;</p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span>&lt;/body&gt;</p>
+<p class="p2">&lt;/html&gt;</p>
+</body>
+</html>
